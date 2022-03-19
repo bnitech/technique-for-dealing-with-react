@@ -10,7 +10,7 @@ class EventPractice extends Component<any, any> {
           name="message"
           placeholder="아무거나 입력해 보세요"
           onChange={e => {
-            console.log(e);
+            console.log(e.target.value);
           }}
         />
       </div>
