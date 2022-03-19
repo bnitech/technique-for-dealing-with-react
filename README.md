@@ -3,7 +3,7 @@
 도서: [리엑트를 다루는 기술](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160508796)
 
 ## 📝 노트
-- [Notion 필기](https://www.notion.so/bnilive/06634f9618c5472d8643f44b8aad9314)
+- [Notion 필기](https://bnilive.notion.site/06634f9618c5472d8643f44b8aad9314)
 - 방향성
   - TypeScript 기반으로 실습한다.
   - 실무에 적용가능한 내용들 파악.
