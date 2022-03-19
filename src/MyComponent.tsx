@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class MyComponent extends Component<{ name, favoriteNumber, children }, any> {
+class MyComponent extends Component<
+  { name: any; favoriteNumber: any; children: any },
+  any
+> {
   static defaultProps = {
     name: '기본 이름',
   };

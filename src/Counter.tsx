@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-class Counter extends Component<any, { number; fixedNumber }> {
+class Counter extends Component<any, { number: any; fixedNumber: any }> {
   state = {
     number: 0,
     fixedNumber: 0,
