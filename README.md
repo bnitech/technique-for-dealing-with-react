@@ -1,14 +1,16 @@
 # 리엑트를 다루는 기술 (Technique for dealing with React)
 
-## 참고 자료
 도서: [리엑트를 다루는 기술](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160508796)
 
-## 필기 노트
-📝 [Notion 필기](https://www.notion.so/bnilive/06634f9618c5472d8643f44b8aad9314)
+## 📝 노트
+- [Notion 필기](https://www.notion.so/bnilive/06634f9618c5472d8643f44b8aad9314)
+- 방향성
+  - TypeScript 기반으로 실습한다.
+  - 실무에 적용가능한 내용들 파악.
 
-## 목차 및 진행상황
-- [ ] 1장 리엑트 시작
-- [ ] 2장 JSX
+## ✅ 목차 및 진행상황
+- [x] 1장 리엑트 시작
+- [x] 2장 JSX
 - [ ] 3장 컴포넌트
 - [ ] 4장 이벤트 헨들링
 - [ ] 5장 ref: DOM에 이름 담기
@@ -27,7 +29,7 @@
 - [ ] 18장 리덕스 미들웨어를 통한 비동기 작업 관리
 - [ ] 19장 코드 스플리팅
 - [ ] 20장 서버 사이드 렌더링
-- [ ] 21장 백엔드 프ㅗㄹ그래밍: Node.js의 Koa 프레임워크
+- [ ] 21장 백엔드 프로그래밍: Node.js의 Koa 프레임워크
 - [ ] 22장 mongoose를 이용한 MongoDB 연동 실습
 - [ ] 23장 JWT를 통한 회원 인증 시스템 구현하기
 - [ ] 24장 프런트엔드 프로젝트: 시작 및 회원 인증 구현
