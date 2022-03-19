@@ -14,7 +14,10 @@ class Counter extends Component<any, { number; fixedNumber }> {
         <h2>바뀌지 않는 값: {fixedNumber}</h2>
         <button
           onClick={() => {
-            this.setState({ number: number + 1 });
+            this.setState(prevState => {
+              return { number: prevState.number + 1 };
+            });
+            this.setState(prevState => ({ number: prevState.number + 1 }));
           }}
         >
           +1
