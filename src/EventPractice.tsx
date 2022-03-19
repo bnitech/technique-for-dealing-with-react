@@ -1,54 +1,41 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class EventPractice extends Component<any, any> {
-  state = {
-    username: '',
-    message: '',
+const EventPractice = () => {
+  const [username, setUserName] = useState('');
+  const [message, setMessage] = useState('');
+  const onChangeUsername = (e: any) => setUserName(e.target.value);
+  const onChangeMessage = (e: any) => setMessage(e.target.value);
+  const onClick = () => {
+    alert(username + ': ' + message);
+    setUserName('');
+    setMessage('');
   };
-
-  handleChange = (e: any) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleClick = () => {
-    alert(this.state.username + ':' + this.state.message);
-    this.setState({
-      username: '',
-      message: '',
-    });
-  };
-
-  handleKeyPress = (e: any) => {
+  const onKeyPress = (e: any) => {
     if (e.key === 'Enter') {
-      this.handleClick();
+      onClick();
     }
   };
-
-  render() {
-    return (
-      <div>
-        <h1>이벤트 연습</h1>
-        <input
-          type="text"
-          name="username"
-          placeholder="사용자명"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="message"
-          placeholder="아무거나 입력해 보세요"
-          value={this.state.message}
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}
-        />
-        <button onClick={this.handleClick}>확인</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h1>이벤트 연습</h1>
+      <input
+        type="text"
+        name="username"
+        placeholder="사용자명"
+        value={username}
+        onChange={onChangeUsername}
+      />
+      <input
+        type="text"
+        name="message"
+        placeholder="아무거나 입력해 보세요"
+        value={message}
+        onChange={onChangeMessage}
+        onKeyPress={onKeyPress}
+      />
+      <button onClick={onClick}>확인</button>
+    </div>
+  );
+};
 
 export default EventPractice;
