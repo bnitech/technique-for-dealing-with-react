@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import RefSample from './RefSample';
+import ValidationSample from './ValidationSample';
 
 function App() {
-  return <RefSample />;
+  return <ValidationSample />;
 }
 
 export default App;
