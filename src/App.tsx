@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import ValidationSample from './ValidationSample';
+import ScrollBox from './ScrollBox';
 
 function App() {
-  return <ValidationSample />;
+  return <ScrollBox />;
 }
 
 export default App;
