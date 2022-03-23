@@ -22,7 +22,16 @@ const IterationSample = () => {
     setInputText('');
   };
 
-  const nameList = names.map(name => <li key={name.id}>{name.text}</li>);
+  const onRemove = (id: number) => {
+    const nextNames = names.filter(name => name.id !== id);
+    setNames(nextNames);
+  };
+
+  const nameList = names.map(name => (
+    <li key={name.id} onDoubleClick={() => onRemove(name.id)}>
+      {name.text}
+    </li>
+  ));
   return (
     <div>
       <input value={inputText} onChange={onChange} />
