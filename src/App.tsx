@@ -7,13 +7,12 @@ class App extends Component<any, any> {
     return (
       <div className="App">
         \
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+        <header className="App">
+          <img src={logo} className="logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <a
-            className="App-link"
             href="https://reactjs.org"
             target="_blank"
             rel="nooperner noreferrer"
