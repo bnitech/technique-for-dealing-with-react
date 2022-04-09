@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import './App.css';
-import SassComponent from './SassComponent';
+import CSSModule from './CSSModule';
 
 class App extends Component<any, any> {
   render() {
     return (
       <div>
-        <SassComponent />
+        <CSSModule />
       </div>
     );
   }
