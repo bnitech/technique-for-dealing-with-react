@@ -35,7 +35,7 @@ const App = (): any => {
       };
 
       setData(
-        produce(data, (draft) => {
+        produce((draft) => {
           draft.array.push(info);
         }),
       );
@@ -46,22 +46,19 @@ const App = (): any => {
       });
       nextId.current += 1;
     },
-    [data, form.name, form.username],
+    [form.name, form.username],
   );
 
-  const onRemove = useCallback(
-    (id) => {
-      setData(
-        produce(data, (draft) => {
-          draft.array.splice(
-            draft.array.findIndex((info) => info.id === id),
-            1,
-          );
-        }),
-      );
-    },
-    [data],
-  );
+  const onRemove = useCallback((id) => {
+    setData(
+      produce((draft) => {
+        draft.array.splice(
+          draft.array.findIndex((info) => info.id === id),
+          1,
+        );
+      }),
+    );
+  }, []);
 
   return (
     <div>
