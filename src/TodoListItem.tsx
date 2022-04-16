@@ -9,10 +9,11 @@ import Todo from './model/Todo';
 
 interface MyProps {
   todo: Todo;
+  onRemove(id: number):void;
 }
 
-const TodoListItem = ({ todo }: MyProps) => {
-  const { text, checked } = todo;
+const TodoListItem = ({ todo, onRemove }: MyProps) => {
+  const { id, text, checked } = todo;
 
   return (
     <div className="TodoListItem">
@@ -20,7 +21,7 @@ const TodoListItem = ({ todo }: MyProps) => {
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
         <div className="text">{text}</div>
       </div>
-      <div className="remove">
+      <div className="remove" onClick={() => onRemove(id)}>
         <MdRemoveCircleOutline />
       </div>
     </div>
