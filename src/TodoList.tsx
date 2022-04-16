@@ -1,12 +1,17 @@
 import TodoListItem from './TodoListItem';
 import './TodoList.scss';
+import Todo from './model/Todo';
 
-const TodoList = () => {
+interface MyProps {
+  todos: Array<Todo>;
+}
+
+const TodoList = ({ todos }: MyProps) => {
   return (
     <div className="TodoList">
-      <TodoListItem />
-      <TodoListItem />
-      <TodoListItem />
+      {todos.map((todo: Todo) => (
+        <TodoListItem todo={todo} key={todo.id} />
+      ))}
     </div>
   );
 };
