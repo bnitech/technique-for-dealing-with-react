@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useCallback, useRef, useState } from 'react';
+import produce from 'immer';
 
 interface MyInfo {
   id: number;
@@ -9,22 +10,20 @@ interface MyInfo {
 
 const App = (): any => {
   const nextId = useRef(1);
-  const [form, setForm] = useState({name: '', username: ''});
+  const [form, setForm] = useState({ name: '', username: '' });
   const [data, setData] = useState({
     array: new Array<MyInfo>(),
     uselessValue: null,
   });
 
-  const onChange = useCallback(
-    (e) => {
-      const { name, value } = e.target;
-      setForm({
-        ...form,
-        [name]: [value],
-      });
-    },
-    [form],
-  );
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm(
+      produce<any>((draft: any) => {
+        draft[name] = value;
+      }),
+    );
+  }, []);
 
   const onSubmit = useCallback(
     (e) => {
@@ -35,9 +34,15 @@ const App = (): any => {
         username: form.username,
       };
 
-      setData({
-        ...data,
-        array: data.array.concat(info),
+      setData(
+        produce(data, (draft) => {
+          draft.array.push(info);
+        }),
+      );
+
+      setForm({
+        name: '',
+        username: '',
       });
       nextId.current += 1;
     },
@@ -46,10 +51,14 @@ const App = (): any => {
 
   const onRemove = useCallback(
     (id) => {
-      setData({
-        ...data,
-        array: data.array.filter((info: MyInfo) => info.id !== id),
-      });
+      setData(
+        produce(data, (draft) => {
+          draft.array.splice(
+            draft.array.findIndex((info) => info.id === id),
+            1,
+          );
+        }),
+      );
     },
     [data],
   );
