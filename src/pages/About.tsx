@@ -1,8 +1,22 @@
-import { useLocation } from 'react-router-dom';
+import {URLSearchParamsInit, useLocation, useSearchParams} from 'react-router-dom';
 import { Path } from 'history';
 
 const About = () => {
-  const location: Path = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const detail = searchParams.get('detail');
+  const mode = searchParams.get('mode');
+
+  // TODO:
+  // const onToggleDetail = () => {
+  //   setSearchParams({
+  //     mode, detail: detail === 'true' ? false : true}: );
+  // };
+  //
+  // const onIncreaseMode = () => {
+  //   const nextMode = mode === null ? 1 : parseInt(mode) + 1;
+  //   setSearchParams({ mode: nextMode, detail });
+  // };
+
   return (
     <div>
       <h1>소개</h1>
