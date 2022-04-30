@@ -8,12 +8,7 @@ const NewsPage = () => {
 
   return (
     <>
-      <Categories
-        onSelect={(category) => {
-          return '';
-        }}
-        category={category}
-      />
+      <Categories />
       <NewsList category={category} />
     </>
   );
