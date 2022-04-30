@@ -5,7 +5,6 @@ const NewItemBlock = styled.div`
 
   .thumbnail {
     margin-right: 1rem;
-
     img {
       display: block;
       width: 160px;
@@ -13,16 +12,13 @@ const NewItemBlock = styled.div`
       object-fit: cover;
     }
   }
-
   .contents {
     h2 {
       margin: 0;
-
       a {
         color: black;
       }
     }
-
     p {
       margin: 0;
       line-height: 1.5;
@@ -30,7 +26,6 @@ const NewItemBlock = styled.div`
       white-space: normal;
     }
   }
-
   & + & {
     margin-top: 3rem;
   }
@@ -50,7 +45,7 @@ const NewsItem = ({ article }: MyProps) => {
   return (
     <NewItemBlock>
       {urlToImage && (
-        <div className="thumnail">
+        <div className="thumbnail">
           <a href={url} target="_blank" rel="noopener noreferrer">
             <img src={urlToImage} alt="thumbnail" />
           </a>

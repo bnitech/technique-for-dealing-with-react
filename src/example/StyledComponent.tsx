@@ -1,4 +1,3 @@
-// @ts-ignore
 import styled, { css } from 'styled-components';
 
 const Box = styled.div`
@@ -51,7 +50,7 @@ const Button = styled.button`
 
 const StyledComponent = () => (
   <Box color="black">
-    <Button>안녕하세요</Button>
+    <Button inverted={false}>안녕하세요</Button>
     <Button inverted={true}>테두리만</Button>
   </Box>
 );
