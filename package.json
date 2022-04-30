@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@types/react-virtualized": "^9.21.21",
+    "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
     "eslint": "^7.32.0",
