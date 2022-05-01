@@ -1,14 +1,12 @@
 import './App.css';
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import NewsPage from './pages/NewsPage';
+import ColorBox from './components/ColorBox';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<NewsPage />} />
-      <Route path="/:category" element={<NewsPage />} />
-    </Routes>
+    <div>
+      <ColorBox />
+    </div>
   );
 };
 
