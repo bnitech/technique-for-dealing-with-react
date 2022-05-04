@@ -1,6 +1,5 @@
 import React, { createContext, useState } from 'react';
-
-type Color = 'black' | 'red';
+import { Color } from '../model/Color';
 
 interface State {
   color: Color;
