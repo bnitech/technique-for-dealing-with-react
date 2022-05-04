@@ -52,5 +52,5 @@ const render = () => {
   counter.innerText = String(state.counter);
 };
 
-
 render();
+store.subscribe(render);
