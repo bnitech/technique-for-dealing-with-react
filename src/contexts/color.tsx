@@ -15,7 +15,7 @@ interface Value {
   };
 }
 
-const ColorContext = createContext<Value | null>({
+const ColorContext = createContext<Value>({
   state: { color: 'black', subColor: 'red' },
   actions: {
     setColor: () => {
