@@ -24,3 +24,6 @@ yarn-error.log*
 
 # idea
 .idea
+/dist/technique-for-dealing-with-react.e31bb0bc.js
+/dist/
+/.cache/
