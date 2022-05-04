@@ -18,7 +18,10 @@ const initialSate = {
   counter: 0,
 };
 
-function reducer(state = initialSate, action) {
+function reducer(
+  state = initialSate,
+  action: { type: string; difference: number },
+) {
   switch (action.type) {
     case TOGGLE_SWITCH:
       return {
@@ -54,3 +57,13 @@ const render = () => {
 
 render();
 store.subscribe(render);
+
+divToggle.onclick = () =>{
+  store.dispatch(toggleSwitch());
+}
+btnIncrease.onclick = () =>{
+  store.dispatch(increase(1));
+}
+btnDecrease.onclick = () =>{
+  store.dispatch(decrease());
+}
