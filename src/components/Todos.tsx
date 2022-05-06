@@ -33,9 +33,9 @@ interface MyProps {
 
   onInsert(text: string): void;
 
-  onToggle(): void;
+  onToggle(id: number): void;
 
-  onRemove(): void;
+  onRemove(id: number): void;
 }
 
 const Todos = ({
