@@ -1,17 +1,20 @@
 import './App.css';
 import React from 'react';
-import ColorBox from './components/ColorBox';
-import { ColorProvider } from './contexts/color';
-import SelectColors from './components/SelectColors';
+import Counter from './components/Counters';
 
 const App = () => {
   return (
-    <ColorProvider>
-      <div>
-        <SelectColors />
-        <ColorBox />
-      </div>
-    </ColorProvider>
+    <div>
+      <Counter
+        number={0}
+        onIncrease={() => {
+          return;
+        }}
+        onDecrease={() => {
+          return;
+        }}
+      />
+    </div>
   );
 };
 
