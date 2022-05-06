@@ -1,20 +1,12 @@
 import './App.css';
 import React from 'react';
-import Counter from './components/Counters';
 import Todos from './components/Todos';
+import CounterContainer from './containers/CounterContainer';
 
 const App = () => {
   return (
     <div>
-      <Counter
-        number={0}
-        onIncrease={() => {
-          return;
-        }}
-        onDecrease={() => {
-          return;
-        }}
-      />
+      <CounterContainer />
       <hr />
       <Todos
         input={''}
