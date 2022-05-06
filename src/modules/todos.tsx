@@ -55,7 +55,7 @@ const initialState: MyState = {
   ],
 };
 
-function todos(state = initialState, action): MyState {
+function todos(state = initialState, action: any): MyState {
   switch (action.type) {
     case CHANGE_INPUT:
       return {
