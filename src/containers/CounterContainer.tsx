@@ -1,5 +1,6 @@
 import Counter from '../components/Counters';
 import { connect } from 'react-redux';
+import { decrease, increase } from '../modules/counter';
 
 interface MyProps {
   number: number;
@@ -21,10 +22,10 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   increase: () => {
-    console.log('increase');
+    dispatch(increase());
   },
   decrease: () => {
-    console.log('decrease');
+    dispatch(decrease());
   },
 });
 
