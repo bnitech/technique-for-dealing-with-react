@@ -2,6 +2,7 @@ import Todos from '../components/Todos';
 import { useSelector } from 'react-redux';
 import { changeInput, insert, remove, toggle } from '../modules/todos';
 import useActions from '../lib/useAction';
+import React from "react";
 
 const TodosContainer = (): JSX.Element => {
   const { input, todos } = useSelector(({ todos }: any) => ({
@@ -26,4 +27,4 @@ const TodosContainer = (): JSX.Element => {
   );
 };
 
-export default TodosContainer;
+export default React.memo(TodosContainer);
