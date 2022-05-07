@@ -6,22 +6,12 @@ const DECREASE = 'counter/DECREASE';
 export const increase = createAction(INCREASE);
 export const decrease = createAction(DECREASE);
 
-interface State {
-  number: number;
-}
-
-interface Action {
-  type: string;
-}
-
-const initialSate: State = {
-  number: 0,
-};
+const initialSate = 0;
 
 const counter = handleActions(
   {
-    [INCREASE]: (state, action) => ({ number: state.number + 1 }),
-    [DECREASE]: (state, action) => ({ number: state.number - 1 }),
+    [INCREASE]: (state) => state + 1,
+    [DECREASE]: (state) => state + 1,
   },
   initialSate,
 );
