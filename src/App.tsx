@@ -1,11 +1,17 @@
+import logo from './logo.svg';
 import './App.css';
-import React from 'react';
-import CounterContainer from './containers/CounterContainer';
+import notify from './notify';
 
 const App = () => {
+  const onClick = () => {
+    notify();
+  };
   return (
-    <div>
-      <CounterContainer />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p onClick={onClick}>Hello React!</p>
+      </header>
     </div>
   );
 };
