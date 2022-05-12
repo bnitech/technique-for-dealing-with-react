@@ -1,28 +1,22 @@
-import { Component } from 'react';
 import './App.css';
+import React, { Suspense, useState } from 'react';
+const SplitMe = React.lazy(() => import('./SplitMe'));
 
-class App extends Component {
-  state = {
-    SplitMe: null,
+function App() {
+  const [visible, setVisible] = useState(false);
+  const onClick = () => {
+    setVisible(true);
   };
-  handleClick = async () => {
-    const loadedModule = await import('./SplitMe');
-    this.setState({
-      SplitMe: loadedModule.default,
-    });
-  };
-
-  render() {
-    const { SplitMe }: any = this.state;
-    return (
-      <div className="App">
-        <header className="App-header">
-          <p onClick={this.handleClick}>Hello React!</p>
-          {SplitMe && <SplitMe />}
-        </header>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p onClick={onClick}>Hello React!</p>
+        <Suspense fallback={<div>loading...</div>}>
+          {visible && <SplitMe />}
+        </Suspense>
+      </header>
+    </div>
+  );
 }
 
 export default App;
