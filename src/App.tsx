@@ -1,29 +1,19 @@
-import './App.css';
-import React, { useState } from 'react';
-import loadable from '@loadable/component';
+import {Route, Routes} from 'react-router-dom';
+import Menu from './components/Menu';
+import RedPage from './pages/RedPage';
+import BluePage from './pages/BluePage';
 
-const SplitMe = loadable(() => import('./SplitMe'), {
-  fallback: <div>loading...</div>,
-});
-
-function App() {
-  const [visible, setVisible] = useState(false);
-  const onClick = () => {
-    setVisible(true);
-  };
-  const onMouseOver = () => {
-    SplitMe.preload();
-  };
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p onClick={onClick} onMouseOver={onMouseOver}>
-          Hello React!
-        </p>
-        {visible && <SplitMe />}
-      </header>
+    <div>
+      <Menu />
+      <hr />
+      <Routes>
+        <Route path="/red" element={<RedPage />} />
+        <Route path="/blue" element={<BluePage />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
