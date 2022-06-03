@@ -27,3 +27,4 @@ yarn-error.log*
 /dist/technique-for-dealing-with-react.e31bb0bc.js
 /dist/
 /.cache/
+/blog/blog-backend/node_modules/
