@@ -1,12 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import dotenv from 'dotenv';
-dotenv.config()
 import Koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
 import mongoose from 'mongoose';
 
 import api from './api/index.js';
+import jwtMiddleware from './lib/jwtMiddleware.js';
+
+dotenv.config();
 
 const { PORT, MONGO_URL } = process.env;
 
@@ -25,6 +27,7 @@ const router = new Router();
 router.use('/api', api.routes());
 
 app.use(bodyParser());
+app.use(jwtMiddleware);
 
 app.use(router.routes()).use(router.allowedMethods);
 
