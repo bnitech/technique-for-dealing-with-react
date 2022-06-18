@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import bcrpt from 'bcrypt';
+import bcrypt from 'bcrypt';
 
 const UserSchema = new Schema({
   username: String,
@@ -7,12 +7,12 @@ const UserSchema = new Schema({
 });
 
 UserSchema.methods.setPassword = async function (password) {
-  const hash = await bcrpt.hash(password, 10);
+  const hash = await bcrypt.hash(password, 10);
   this.hashedPassword = hash;
 };
 
 UserSchema.methods.checkPassword = async function (password) {
-  const result = await bcrpt.compare(password, this.hashedPassword);
+  const result = await bcrypt.compare(password, this.hashedPassword);
   return result;
 };
 
