@@ -26,10 +26,46 @@ export const register = async (ctx) => {
     await user.save();
 
     ctx.body = user.serialize();
+
+    const token = user.generateToken();
+    ctx.cookies.set('access_token', token, {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      httpOnly: true,
+    });
   } catch (e) {
     ctx.throw(500, e);
   }
 };
-export const login = async (ctx) => {};
+export const login = async (ctx) => {
+  const { username, password } = ctx.request.body;
+
+  if (!username || !password) {
+    ctx.status = 401;
+    return;
+  }
+
+  try {
+    const user = await User.fincByUsername(username);
+    if (!user) {
+      ctx.status = 401;
+      return;
+    }
+    const valid = await usr.checkPassword(password);
+    if (!valid) {
+      ctx.status = 401;
+      return;
+    }
+    ctx.body = user.serialize();
+
+    const token = user.generateToken();
+    ctx.cookies.set('access_token', token, {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      httpOnly: true,
+    });
+    ctx.cookies.set;
+  } catch (e) {
+    ctx.throw(500, e);
+  }
+};
 export const check = async (ctx) => {};
 export const logout = async (ctx) => {};
