@@ -1,4 +1,6 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
+import pkg from 'mongoose'
+const {Schema} = pkg
 import bcrypt from 'bcrypt';
 
 const UserSchema = new Schema({
@@ -19,6 +21,12 @@ UserSchema.methods.checkPassword = async function (password) {
 UserSchema.statics.findByUsername = function (username) {
   return this.findOne({ username });
 };
+
+UserSchema.methods.serialize = function() {
+  const data = this.toJSON();
+  delete data.hashedPassword;
+  return data;
+}
 
 const User = mongoose.model('User', UserSchema);
 export default User;

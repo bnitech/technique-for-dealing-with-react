@@ -1,5 +1,5 @@
-const Router = require('koa-router');
-import * as autCtrl from './auth.ctrl';
+import Router from 'koa-router';
+import * as autCtrl from './auth.ctrl.js';
 
 const auth = new Router();
 

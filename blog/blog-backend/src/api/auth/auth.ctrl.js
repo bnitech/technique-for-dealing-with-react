@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import User from '../../models/user';
+import User from '../../models/user.js';
 
 export const register = async (ctx) => {
   const schema = Joi.object().keys({
@@ -25,9 +25,7 @@ export const register = async (ctx) => {
     await user.setPassword(password);
     await user.save();
 
-    const data = user.toJSON();
-    delete data.hashedPassword;
-    ctx.body = data;
+    ctx.body = user.serialize();
   } catch (e) {
     ctx.throw(500, e);
   }

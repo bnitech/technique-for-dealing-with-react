@@ -1,28 +1,32 @@
-require('dotenv').config()
-const Koa = require('koa');
-const Router = require('koa-router');
-const bodyParser = require('koa-bodyparser')
-const mongoose = require('mongoose')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+import dotenv from 'dotenv';
+dotenv.config()
+import Koa from 'koa';
+import Router from 'koa-router';
+import bodyParser from 'koa-bodyparser';
+import mongoose from 'mongoose';
 
-const {PORT, MONGO_URL: MONGO_URI} = process.env;
+import api from './api/index.js';
 
-mongoose.connect(MONGO_URI).then(() => {
-  console.log("Connected to MongoDB")
-})
-  .catch(e => {
-    console.error(e);
+const { PORT, MONGO_URL } = process.env;
+
+mongoose
+  .connect(MONGO_URL)
+  .then(() => {
+    console.log('Connected to MongoDB');
   })
-
-const api = require('./api');
+  .catch((e) => {
+    console.error(e);
+  });
 
 const app = new Koa();
 const router = new Router();
 
 router.use('/api', api.routes());
 
-app.use(bodyParser())
+app.use(bodyParser());
 
-app.use(router.routes()).use(router.allowedMethods)
+app.use(router.routes()).use(router.allowedMethods);
 
 const port = PORT || 4000;
 app.listen(port, () => {
